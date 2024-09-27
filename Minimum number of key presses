@@ -1,0 +1,22 @@
+def two_sum(nums, target):
+    num_to_index = {}  # Dictionary to hold number and its index
+    
+    for index, num in enumerate(nums):
+        complement = target - num  # Calculate the complement
+        
+        # Check if the complement is in the dictionary
+        if complement in num_to_index:
+            return [num_to_index[complement], index]  # Return the indices
+        
+        # Store the number and its index in the dictionary
+        num_to_index[num] = index
+
+# Example usage
+if __name__ == "__main__":
+    import sys
+    
+    nums = list(map(int, sys.stdin.readline().strip().split()))  # Read the list of integers
+    target = int(sys.stdin.readline().strip())  # Read the target sum
+    
+    result = two_sum(nums, target)
+    print(result)
